@@ -1,0 +1,15 @@
+{% extends 'hospital/base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="fw-bold">Approve Appointment & Add Meet Link</h2>
+
+    <p><b>Patient:</b> {{ appointment.patient.username }}</p>
+    <p><b>Date:</b> {{ appointment.date }}</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success fw-bold">Save & Accept</button>
+    </form>
+</div>
+{% endblock %}

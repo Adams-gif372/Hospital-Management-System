@@ -1,0 +1,14 @@
+{% extends 'hospital/base.html' %}
+{% block content %}
+<div class="card mx-auto" style="max-width: 600px;">
+     
+    {% if doctor.profile_pic %}
+        <img src="{{ doctor.profile_pic.url }}" class="card-img-top" alt="{{ doctor.name }}">
+    {% endif %}
+    <div class="card-body">
+        <h3 class="card-title fw-bold">{{ doctor.name }}</h3>
+        <p><b>Speciality:</b> {{ doctor.speciality }}</p>
+        <p>{{ doctor.bio }}</p>
+    </div>
+</div>
+{% endblock %}

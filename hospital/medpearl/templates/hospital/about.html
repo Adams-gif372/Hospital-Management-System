@@ -1,0 +1,18 @@
+{% extends 'hospital/base.html' %}
+{% block content %}
+<h1 class="fw-bold text-center">About Us</h1>
+<p>Our hospital is dedicated to serving patients with care</p>
+<p>We strive to create a safe, supportive environment where patients receive personalized care, timely treatment, and the respect they deserve.</p>
+<p>Dedicated to compassionate care, our hospital delivers advanced medical services with a patient-first approach.
+We combine modern technology with expert specialists to ensure the best outcomes for every individual.</p>
+<div class="row">
+     {% load static %}
+    {% for img in images %}
+        <div class="col-md-9">
+            <img src="{% static 'hospital/images/hospital2.jpg' %}" class="img-fluid rounded mb-3" alt="Hospital image">
+            <img src="{% static 'hospital/images/hospital1.jpg' %}" class="img-fluid rounded mb-3" alt="Hospital image">
+            <img src="{% static 'hospital/images/hospital2.jpg' %}" class="img-fluid rounded mb-3" alt="Hospital image">
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

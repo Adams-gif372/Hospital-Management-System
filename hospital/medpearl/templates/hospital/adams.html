@@ -1,0 +1,14 @@
+{% extends 'hospital/base.html' %}
+{% block content %}
+<h1 class="text-center fw-bold">Welcome to Our Hospital</h1>
+<p>We are committed to delivering compassionate and high-quality healthcare to every patient who walks through our doors.</p>
+<p>Delivering excellence in healthcare, our hospital focuses on personalized treatment and holistic wellbeing.
+We stand by our mission to serve the community with integrity, empathy, and innovation.</p>
+<div class="row">
+    {% load static %}
+    {% for img in images %}
+  <div class="col-12 col-md-9"> 
+    <img src="{% static 'hospital/images/hospital1.jpg' %}" class="img-fluid rounded mb-3" alt="Hospital image"> </div>
+    {% endfor %}
+</div>
+{% endblock %}

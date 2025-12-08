@@ -1,0 +1,47 @@
+{% extends 'hospital/base.html' %}
+{% block content %}
+<h2 class="fw-bold text-center">My Dashboard</h2>
+<div class="card mt-3">
+    <div class="card-header fw-bold">Appointments</div>
+    <ul class="list-group list-group-flush">
+        {% for appointment in appointments %}
+        <li class="list-group-item">
+            <b>Doctor:</b> {{ appointment.doctor.name }} |
+            <b>Date:</b> {{ appointment.date }} |
+            <b>Status:</b>
+            <span class="badge {% if appointment.status == 'Accepted' %}bg-success{% elif appointment.status == 'Rejected' %}bg-danger{% else %}bg-secondary{% endif %} fw-bold">{{ appointment.status }}</span>
+
+             {% if appointment.status == 'Accepted' and appointment.meet_link %}
+            <div class="mt-2">
+                <b>Meet Link:</b>
+                <a href="{{ appointment.meet_link }}" target="_blank"
+                   class="btn btn-sm btn-success fw-bold">
+                    Join Meeting
+                </a>
+            </div>
+            {% endif %}
+            
+            {% if appointment.status == 'Accepted' %}
+            <form action="{% url 'initiate_payment' appointment.id %}" method="POST" class="mt-2">
+                 {% csrf_token %}
+                <div class="row g-2">
+                    <div class="col-md-4">
+                        <input type="text" name="phone" class="form-control" placeholder="Phone e.g. 254712345678" required>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" name="amount" min="1" class="form-control" placeholder="Amount" required>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-sm btn-primary w-100 fw-bold">Pay</button>
+                    </div>
+                </div>
+            </form>
+            {% endif %}
+        </li>
+        {% empty %}
+        <li class="list-group-item">No appointments yet.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'book_appointment' %}" class="btn btn-primary m-3 fw-bold">Book New Appointment</a>
+</div>
+{% endblock %}

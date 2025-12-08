@@ -1,0 +1,17 @@
+{% extends 'hospital/base.html' %}
+{% block content %}
+<h2 class="fw-bold text-center">Patient Login</h2>
+<form method="post" class="mx-auto shadow p-4 rounded" style="max-width:400px; background:#f7f7f7;">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="mb-3">
+        <label class="form-label fw-bold">Username</label>
+        {{ form.username }}
+    </div>
+    <div class="mb-3">
+        <label class="form-label fw-bold">Password</label>
+        {{ form.password }}
+    </div>
+    <button type="submit" class="btn btn-primary w-100 fw-bold">Login</button>
+</form>
+{% endblock %}

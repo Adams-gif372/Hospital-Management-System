@@ -1,0 +1,37 @@
+body{ background: #f4f9fc; 
+} 
+.navbar .nav-link { 
+    color: #fff !important; 
+    font-weight: bold; 
+} 
+.navbar .nav-link:hover { 
+    color: #ffe082 !important; 
+} footer { 
+    background: #0873b9; 
+    color: #fff; } 
+.card { 
+    box-shadow: 0 2px 6px rgba(0,0,0,.08); 
+} 
+.btn-primary, .btn-success { 
+    font-weight: bold; 
+    background-color: #0873b9; 
+    border: none; 
+} 
+.btn-primary:hover, .btn-success:hover { 
+    background-color: #0b457b; 
+} 
+.btn-danger { 
+    font-weight: bold; 
+} 
+.form-label { 
+    color: #0873b9; 
+    font-weight: bold; 
+} 
+input:focus, textarea:focus, select:focus { 
+    border-color: #0873b9; 
+    box-shadow: 0 0 0 0.2rem rgba(8, 115, 185, 0.25); 
+} 
+.main-hospital-image { 
+    height: 60vh; 
+    object-fit: cover; 
+}

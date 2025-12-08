@@ -1,0 +1,25 @@
+{% extends 'hospital/base.html' %}
+{% block content %}
+<h1 class="text-center fw-bold">Welcome to Medpearl South Hospital</h1>
+<p>We provide world-class healthcare services for all.</p>
+<p>Delivering excellence in healthcare, our hospital focuses on personalized treatment and holistic wellbeing.
+We stand by our mission to serve the community with integrity, empathy, and innovation.</p>
+<div id="hospitalImageSlider" class="carousel slide my-3" data-bs-ride="carousel" style="max-width:100vw;">
+  <div class="carousel-inner">
+    {% load static %}
+    {% for img in images %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="{% static 'hospital/images/hospital1.jpg' %}" class="d-block w-100 main-hospital-image" alt="Hospital image">
+      </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#hospitalImageSlider" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#hospitalImageSlider" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock %}
